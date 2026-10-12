@@ -81,30 +81,30 @@ function MagneticButton({
 }
 
 // -------------------------------------------------------------
-// Interactive Feature 1: Diagnostic Shuffler (Value Prop 1: Continuous Artisanal Infusion)
+// Interactive Feature 1: Diagnostic Shuffler (Value Prop 1: Real Smoked Fish & Shrimps)
 // -------------------------------------------------------------
 function DiagnosticShuffler() {
   const initialCards = [
     {
       id: 1,
-      badge: 'Marine Umami',
+      badge: 'Real Smoked Fish',
       title: 'Smoked Volta Crayfish & Prawns',
-      metric: '100% Wild Caught',
-      desc: 'Sundried marine crustaceans slowly reduced into aromatic golden oil for deep, savory notes.',
+      metric: '100% Natural Seafood',
+      desc: 'Sundried river prawns and fish ground fresh for rich crunch and sweet seafood flavor.',
     },
     {
       id: 2,
-      badge: 'Capsicum Extract',
-      title: 'Scotch Bonnet & Birdseye Chilies',
-      metric: '72-Hour Simmer',
-      desc: 'Gentle low-temperature caramelized reduction capturing velvety heat without harsh scorching.',
+      badge: 'Balanced Heat',
+      title: 'Fresh Scotch Bonnet Peppers',
+      metric: 'Mild & Sweet Heat',
+      desc: 'Cooked gently over low fire so the pepper tastes sweet and spicy, never burnt.',
     },
     {
       id: 3,
-      badge: 'Heritage Aromatics',
-      title: 'Shallots, Ginger & Spices',
-      metric: 'Zero Additives',
-      desc: 'Ancestral Ghanaian botanical blend crystallized into an obsidian black gourmet glaze.',
+      badge: 'Local Aromatics',
+      title: 'Fresh Ginger, Garlic & Onions',
+      metric: 'Zero Chemicals',
+      desc: 'Natural Ghanaian seasonings blended together to give that mouthwatering aroma.',
     },
   ];
 
@@ -154,15 +154,15 @@ function DiagnosticShuffler() {
 }
 
 // -------------------------------------------------------------
-// Interactive Feature 2: Telemetry Typewriter (Value Prop 2: Authentic Ancestral Formulation)
+// Interactive Feature 2: Telemetry Typewriter (Value Prop 2: Slow Traditional Cooking)
 // -------------------------------------------------------------
 function TelemetryTypewriter() {
   const messages = [
-    '> ATELIER BATCH: #CHELZZY-VINTAGE-ACCRA registered.',
-    '> INFUSION: 72-hour slow obsidian simmer locked at 98.4°C.',
-    '> MARINE UMAI: Cold-smoked Volta prawns & Atlantic baby crayfish active.',
-    '> PURITY MATRIX: 100% ancestral Ghanaian botanicals, 0.0g preservatives.',
-    '> TASTING PROFILE: Deep roasted umami entry with warm lingering capsicum finish.',
+    '> FRESH BATCH: Cooked fresh right here in Accra.',
+    '> SLOW FRYING: Fried gently over low fire to reach rich black color.',
+    '> REAL SEAFOOD: Loaded with smoked Volta prawns and sweet crayfish.',
+    '> 100% HEALTHY: Pure vegetable oil, zero artificial colors or preservatives.',
+    '> DELICIOUS TASTE: Perfect with waakye, fried rice, kenkey, and yam.',
   ];
 
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -193,9 +193,9 @@ function TelemetryTypewriter() {
       <div className="flex items-center justify-between border-b border-white/5 pb-3">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#C9A84C] animate-pulse" />
-          <span className="text-xs uppercase tracking-wider text-[#FAF8F5]/90">Live Atelier Telemetry</span>
+          <span className="text-xs uppercase tracking-wider text-[#FAF8F5]/90">Kitchen Live Updates</span>
         </div>
-        <span className="text-[11px] text-[#C9A84C]">VINTAGE.v26</span>
+        <span className="text-[11px] text-[#C9A84C]">CHELZZY.v26</span>
       </div>
 
       <div className="my-auto py-2">
@@ -207,16 +207,16 @@ function TelemetryTypewriter() {
 
       <div className="grid grid-cols-3 gap-2 pt-3 border-t border-white/5 text-[10px] text-[#FAF8F5]/50">
         <div>
-          <span className="block text-[#FAF8F5]/70">SMOKE INDEX</span>
-          <span className="text-[#FAF8F5] font-semibold">99.8% PURE</span>
+          <span className="block text-[#FAF8F5]/70">SMOKED FISH</span>
+          <span className="text-[#FAF8F5] font-semibold">100% VOLTA</span>
         </div>
         <div>
-          <span className="block text-[#FAF8F5]/70">EXTRACTION</span>
-          <span className="text-[#FAF8F5] font-semibold">72 HOURS</span>
+          <span className="block text-[#FAF8F5]/70">COOKING</span>
+          <span className="text-[#FAF8F5] font-semibold">SLOW-FRIED</span>
         </div>
         <div>
-          <span className="block text-[#FAF8F5]/70">PRESERVATIVES</span>
-          <span className="text-[#FAF8F5] font-semibold">0.0% ZERO</span>
+          <span className="block text-[#FAF8F5]/70">CHEMICALS</span>
+          <span className="text-[#FAF8F5] font-semibold">0% ZERO</span>
         </div>
       </div>
     </div>
@@ -224,7 +224,7 @@ function TelemetryTypewriter() {
 }
 
 // -------------------------------------------------------------
-// Interactive Feature 3: Cursor Protocol Scheduler (Value Prop 3: Bespoke Reserve Dispatch)
+// Interactive Feature 3: Cursor Protocol Scheduler (Value Prop 3: Fast Nationwide Delivery)
 // -------------------------------------------------------------
 function CursorProtocolScheduler() {
   const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -251,12 +251,12 @@ function CursorProtocolScheduler() {
       <div>
         <div className="flex items-center justify-between mb-3">
           <span className="text-xs uppercase tracking-wider text-[#FAF8F5]/70 flex items-center gap-1.5">
-            <Calendar className="w-3.5 h-3.5 text-[#C9A84C]" /> Vintage Batch Dispatch Cadence
+            <Calendar className="w-3.5 h-3.5 text-[#C9A84C]" /> Weekly Delivery Schedule
           </span>
-          <span className="text-[11px] data-mono text-[#FAF8F5]/50">ACCRA AIRLINE</span>
+          <span className="text-[11px] data-mono text-[#FAF8F5]/50">ACCRA & BEYOND</span>
         </div>
         <p className="text-xs text-[#FAF8F5]/60 leading-snug">
-          Algorithmic reservation of freshly decanted shito jars shipped in temperature-controlled casks.
+          Pick your preferred day to receive fresh, safely packed shito jars right at your doorstep.
         </p>
       </div>
 
@@ -369,14 +369,13 @@ function ProtocolSection() {
         <div className="max-w-5xl w-full rounded-[3rem] bg-[#161622] border border-[#C9A84C]/30 p-8 sm:p-14 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="space-y-4 max-w-lg">
             <span className="data-mono text-xs text-[#C9A84C] tracking-widest uppercase bg-[#C9A84C]/15 border border-[#C9A84C]/30 px-3 py-1 rounded-full">
-              PROTOCOL 01 // EXTRACTION
+              STEP 01 // FRESH INGREDIENTS
             </span>
             <h3 className="text-3xl sm:text-4xl font-semibold text-[#FAF8F5] tracking-tight">
-              Wild Marine & Capsicum Fusion
+              Real Smoked Fish & Hot Peppers
             </h3>
             <p className="text-[#FAF8F5]/70 text-sm sm:text-base leading-relaxed">
-              Volta river prawns and Atlantic baby crayfish are naturally wood-smoked, then infused into
-              warm cold-pressed botanical oil alongside fire-roasted Scotch bonnet chilies.
+              We carefully select clean, high quality Volta river prawns, smoked fish, and fresh Ghanaian peppers from the local market, ensuring every ingredient is 100% fresh and clean.
             </p>
           </div>
 
@@ -397,14 +396,13 @@ function ProtocolSection() {
         <div className="max-w-5xl w-full rounded-[3rem] bg-[#161622] border border-[#C9A84C]/30 p-8 sm:p-14 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="space-y-4 max-w-lg">
             <span className="data-mono text-xs text-[#C9A84C] tracking-widest uppercase bg-[#C9A84C]/15 border border-[#C9A84C]/30 px-3 py-1 rounded-full">
-              PROTOCOL 02 // OBSIDIAN REDUCTION
+              STEP 02 // SLOW FRYING
             </span>
             <h3 className="text-3xl sm:text-4xl font-semibold text-[#FAF8F5] tracking-tight">
-              72-Hour Continuous Simmer
+              Slow Cooking Until Jet Black
             </h3>
             <p className="text-[#FAF8F5]/70 text-sm sm:text-base leading-relaxed">
-              Maintained at a strict low temperature, the caramelized shallots, garlic, and wild ginger slowly
-              crystallize into our signature obsidian black hue without ever compromising the delicate aromatics.
+              Cooked gently over low heat, the chopped onions, garlic, and fresh ginger fry until golden brown, blending with our ground seafood until the shito turns rich, shiny black naturally.
             </p>
           </div>
 
@@ -426,14 +424,13 @@ function ProtocolSection() {
         <div className="max-w-5xl w-full rounded-[3rem] bg-[#161622] border border-[#C9A84C]/30 p-8 sm:p-14 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="space-y-4 max-w-lg">
             <span className="data-mono text-xs text-[#C9A84C] tracking-widest uppercase bg-[#C9A84C]/15 border border-[#C9A84C]/30 px-3 py-1 rounded-full">
-              PROTOCOL 03 // HERMETIC SEALING
+              STEP 03 // CLEAN SEALING
             </span>
             <h3 className="text-3xl sm:text-4xl font-semibold text-[#FAF8F5] tracking-tight">
-              Aroma Lock & Crystal Cask Bottling
+              Tightly Sealed In Clean Glass Jars
             </h3>
             <p className="text-[#FAF8F5]/70 text-sm sm:text-base leading-relaxed">
-              Every jar is filled hot, hermetically sealed, and inspected by our master cuisinier. Zero
-              preservatives, zero artificial coloring — pure, concentrated Ghanaian gastronomic black gold.
+              Every jar is filled hot and airtight in clean glass containers. Zero artificial coloring, zero preservatives — pure, delicious Ghanaian shito that stays fresh for months.
             </p>
           </div>
 
@@ -550,21 +547,21 @@ export default function ChelzzyShitoLandingPage() {
 
         <div className="hidden md:flex items-center gap-7 text-xs font-medium text-[#FAF8F5]/80">
           <Link href="#artifacts" className="interactive-lift hover:text-[#C9A84C]">
-            Craft Heritage
+            Why Chelzzy&apos;s
           </Link>
           <Link href="#manifesto" className="interactive-lift hover:text-[#C9A84C]">
-            Manifesto
+            Our Story
           </Link>
           <Link href="#protocol" className="interactive-lift hover:text-[#C9A84C]">
-            Protocol
+            How We Cook
           </Link>
           <Link href="#reserves" className="interactive-lift hover:text-[#C9A84C]">
-            Vintage Reserves
+            Prices & Packages
           </Link>
         </div>
 
-        <MagneticButton accent href="#trial" className="!px-5 !py-2 !text-xs">
-          Start free trial
+        <MagneticButton accent href="#reserves" className="!px-5 !py-2 !text-xs">
+          Order Now
         </MagneticButton>
       </nav>
 
@@ -590,32 +587,32 @@ export default function ChelzzyShitoLandingPage() {
         {/* Content pushed to Bottom-Left Third */}
         <div className="relative z-10 max-w-4xl space-y-6">
           <div className="hero-anim-item inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C9A84C]/15 border border-[#C9A84C]/30 text-xs text-[#C9A84C] data-mono uppercase tracking-widest">
-            <Flame className="w-3.5 h-3.5 animate-pulse text-[#C9A84C]" /> Finest Ghanaian Taste // Special Black Chilli Sauce
+            <Flame className="w-3.5 h-3.5 animate-pulse text-[#C9A84C]" /> Finest Ghanaian Taste // Special Black Pepper Shito
           </div>
 
           <div className="hero-anim-item space-y-1">
             {/* Preset B Hero Line Pattern: [Aspirational noun] meets / [Precision word]. */}
             <p className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FAF8F5]">
-              Black Gold meets
+              Real Ghanaian Shito meets
             </p>
             <h1 className="drama-text text-6xl sm:text-8xl md:text-9xl text-[#C9A84C] font-normal leading-[0.9] tracking-tight">
-              Perfection.
+              Rich Flavor.
             </h1>
           </div>
 
           <p className="hero-anim-item text-[#FAF8F5]/80 text-sm sm:text-lg max-w-xl leading-relaxed font-light">
-            Chelzzy&apos;s special black chilli pepper shito brings the finest Ghanaian culinary heritage to life.
-            Slow-simmered smoked river prawns, caramelized shallots, and hand-selected bird&apos;s eye chilies infused into pure, concentrated umami.
+            Chelzzy&apos;s special black pepper shito brings you the true authentic Ghanaian taste you love.
+            Slow-cooked with tasty smoked fish, dried river prawns, fresh onions, ginger, and hot peppers for rich, unforgettable flavor.
           </p>
 
           <div className="hero-anim-item pt-2 flex flex-wrap items-center gap-4">
-            <MagneticButton accent href="#trial" className="!px-8 !py-3.5 !text-sm">
-              Start free trial
+            <MagneticButton accent href="#reserves" className="!px-8 !py-3.5 !text-sm">
+              Order Yours Now
               <ArrowRight className="w-4 h-4 ml-1" />
             </MagneticButton>
 
-            <MagneticButton href="#artifacts" className="!px-7 !py-3.5 !text-sm">
-              Explore Heritage
+            <MagneticButton href="#manifesto" className="!px-7 !py-3.5 !text-sm">
+              Read Our Story
             </MagneticButton>
           </div>
         </div>
@@ -627,13 +624,13 @@ export default function ChelzzyShitoLandingPage() {
       <section id="artifacts" className="py-28 px-6 sm:px-12 max-w-7xl mx-auto w-full space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <span className="text-xs uppercase tracking-widest text-[#C9A84C] data-mono font-medium">
-            Artisanal Culinary Micro-UIs
+            Made With Love In Ghana
           </span>
           <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#FAF8F5]">
-            Functional Gastronomy Artifacts
+            What Makes Chelzzy&apos;s Special
           </h2>
           <p className="text-[#FAF8F5]/70 text-sm sm:text-base">
-            Every culinary proposition is engineered as an active, live-rendered micro-instrument.
+            Three simple reasons why every spoon of our shito tastes just like authentic home cooking.
           </p>
         </div>
 
@@ -643,13 +640,13 @@ export default function ChelzzyShitoLandingPage() {
             <div>
               <div className="flex items-center gap-2 mb-2 text-[#C9A84C]">
                 <Activity className="w-4 h-4" />
-                <span className="text-xs font-semibold uppercase tracking-wider">Heritage Prop 01</span>
+                <span className="text-xs font-semibold uppercase tracking-wider">Quality 01</span>
               </div>
               <h3 className="text-xl font-bold text-[#FAF8F5] tracking-tight">
-                Continuous Marine Infusion
+                Real Smoked Fish & Shrimps
               </h3>
               <p className="text-xs text-[#FAF8F5]/60 mt-1 mb-4">
-                Dynamic shuffler cycling smoked Volta crayfish, dried amber prawns, and cold-pressed botanical oil.
+                Generous amounts of Volta river prawns and dried smoked fish for deep crunch and rich seafood aroma.
               </p>
             </div>
             <DiagnosticShuffler />
@@ -660,13 +657,13 @@ export default function ChelzzyShitoLandingPage() {
             <div>
               <div className="flex items-center gap-2 mb-2 text-[#C9A84C]">
                 <Zap className="w-4 h-4" />
-                <span className="text-xs font-semibold uppercase tracking-wider">Heritage Prop 02</span>
+                <span className="text-xs font-semibold uppercase tracking-wider">Quality 02</span>
               </div>
               <h3 className="text-xl font-bold text-[#FAF8F5] tracking-tight">
-                Ancestral Obsidian Formulation
+                Slow Traditional Cooking
               </h3>
               <p className="text-xs text-[#FAF8F5]/60 mt-1 mb-4">
-                Live typewriter feed monitoring the 72-hour slow reduction, purity metrics, and velvet spice profile.
+                Cooked slowly over gentle heat with pure vegetable oil until it turns naturally shiny black.
               </p>
             </div>
             <TelemetryTypewriter />
@@ -677,13 +674,13 @@ export default function ChelzzyShitoLandingPage() {
             <div>
               <div className="flex items-center gap-2 mb-2 text-[#C9A84C]">
                 <Calendar className="w-4 h-4" />
-                <span className="text-xs font-semibold uppercase tracking-wider">Heritage Prop 03</span>
+                <span className="text-xs font-semibold uppercase tracking-wider">Quality 03</span>
               </div>
               <h3 className="text-xl font-bold text-[#FAF8F5] tracking-tight">
-                Bespoke Reserve Dispatch
+                Fast Doorstep Delivery
               </h3>
               <p className="text-xs text-[#FAF8F5]/60 mt-1 mb-4">
-                Automated cadence reserving freshly sealed vintage jars direct from our Accra smokehouse.
+                Freshly packed in clean glass jars and delivered straight to your door in Accra and nationwide.
               </p>
             </div>
             <CursorProtocolScheduler />
@@ -709,27 +706,26 @@ export default function ChelzzyShitoLandingPage() {
         <div className="relative z-10 max-w-4xl mx-auto space-y-12">
           <div className="manifesto-reveal space-y-2">
             <span className="text-xs uppercase tracking-widest text-[#C9A84C] data-mono font-medium">
-              The Ghanaian Taste Manifesto
+              Our Promise To You
             </span>
             <p className="text-base sm:text-xl text-[#FAF8F5]/70 tracking-wide font-light">
-              Most commercial chilli sauces focus on:
+              Most store-bought shito you buy outside has:
             </p>
             <p className="text-lg sm:text-2xl text-[#FAF8F5] font-medium tracking-tight">
-              Mass industrial dilution, artificial stabilizers, and watery, scorched chili oils.
+              Too much oil, too many pepper seeds, and very little fish or shrimps.
             </p>
           </div>
 
           <div className="manifesto-reveal pt-6 border-t border-white/10 space-y-4">
             <p className="text-base sm:text-xl text-[#FAF8F5]/70 tracking-wide font-light">
-              We focus on:
+              Chelzzy&apos;s Shito gives you:
             </p>
             <h2 className="drama-text text-4xl sm:text-6xl md:text-7xl text-[#FAF8F5] font-normal leading-tight">
-              Ancestral Ghanaian smoke craftsmanship, slow-roasted obsidian umami, and{' '}
-              <span className="text-[#C9A84C]">uncompromising culinary purity.</span>
+              Generous smoked fish, tasty river shrimps, and sweet caramelized onions cooked to{' '}
+              <span className="text-[#C9A84C]">pure delicious perfection.</span>
             </h2>
             <p className="text-sm sm:text-base text-[#FAF8F5]/70 max-w-2xl leading-relaxed pt-2">
-              Every jar crafted by Chelzzy is cooked with patience over slow heat — transforming Ghana&apos;s
-              most celebrated black pepper delicacy into an opulent gastronomic heirloom.
+              Every single jar of Chelzzy&apos;s is prepared with patience and clean kitchen hygiene — giving you that delicious homemade taste that makes waakye, fried rice, plain rice, and kenkey taste so good.
             </p>
           </div>
         </div>
@@ -746,13 +742,13 @@ export default function ChelzzyShitoLandingPage() {
       <section id="reserves" className="py-28 px-6 sm:px-12 max-w-7xl mx-auto w-full space-y-16">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <span className="text-xs uppercase tracking-widest text-[#C9A84C] data-mono font-medium">
-            Vintage Cask Collections
+            Fresh Jar Sizes & Prices
           </span>
           <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#FAF8F5]">
-            Artisanal Reserve Tiers
+            Choose Your Favorite Shito Jar
           </h2>
           <p className="text-[#FAF8F5]/70 text-sm sm:text-base">
-            Small-batch, hand-bottled shito crafted for connoisseurs of authentic African gastronomy.
+            Freshly prepared homemade Ghanaian black pepper shito made with real smoked fish and shrimps. Safe glass jars, zero artificial colors, and fast delivery.
           </p>
         </div>
 
@@ -761,32 +757,32 @@ export default function ChelzzyShitoLandingPage() {
           <div className="rounded-[2.5rem] bg-[#161622] border border-white/10 p-8 flex flex-col justify-between shadow-xl">
             <div className="space-y-4">
               <span className="text-xs data-mono text-[#FAF8F5]/60 uppercase tracking-widest">
-                Tier 01 // Baseline Reserve
+                Option 01 // Single Jar
               </span>
-              <h3 className="text-2xl font-bold text-[#FAF8F5]">The Connoisseur Jar</h3>
+              <h3 className="text-2xl font-bold text-[#FAF8F5]">Standard Jar (250g)</h3>
               <div className="flex items-baseline gap-1 text-3xl font-extrabold text-[#FAF8F5]">
                 GH₵ 28 <span className="text-xs font-normal text-[#FAF8F5]/60">/ 250g jar</span>
               </div>
               <p className="text-xs text-[#FAF8F5]/70 leading-relaxed">
-                Hand-poured 250g obsidian glass jar. Smoked Volta river crayfish, caramelized shallots, and balanced heat.
+                One 250g glass jar of thick black shito. Made with real smoked river shrimps, fresh onions, ginger, and hot peppers with mild, sweet heat.
               </p>
 
               <ul className="space-y-2.5 pt-4 text-xs text-[#FAF8F5]/80">
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> 100% Wild Smoked Prawn Infusion
+                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Packed with real smoked fish & shrimps
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Hermetically Sealed Dark Glass
+                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Tightly sealed glass jar (keeps fresh for months)
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Free Courier Dispatch in Ghana
+                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Fast delivery anywhere in Ghana
                 </li>
               </ul>
             </div>
 
             <div className="pt-8">
-              <MagneticButton href="#trial" className="w-full">
-                Start free trial
+              <MagneticButton href="#reserves" className="w-full">
+                Order Single Jar (GH₵ 28)
               </MagneticButton>
             </div>
           </div>
@@ -794,40 +790,40 @@ export default function ChelzzyShitoLandingPage() {
           {/* Card 2: Performance (Middle Card Pops) */}
           <div className="rounded-[2.5rem] bg-[#1A1A26] border-2 border-[#C9A84C] p-8 flex flex-col justify-between shadow-[0_0_50px_rgba(201,168,76,0.22)] relative scale-105 z-10">
             <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#C9A84C] text-[#0D0D12] text-[11px] font-bold uppercase tracking-widest shadow-md">
-              Most Commended
+              Most Popular Choice
             </div>
 
             <div className="space-y-4">
               <span className="text-xs data-mono text-[#C9A84C] uppercase tracking-widest">
-                Tier 02 // Double Cask Reserve
+                Option 02 // Double Pack
               </span>
-              <h3 className="text-2xl font-bold text-[#FAF8F5]">The Vintage Duo</h3>
+              <h3 className="text-2xl font-bold text-[#FAF8F5]">Family Pack (2 Big Jars)</h3>
               <div className="flex items-baseline gap-1 text-4xl font-extrabold text-[#C9A84C]">
                 GH₵ 54 <span className="text-xs font-normal text-[#FAF8F5]/70">/ 2x 350g jars</span>
               </div>
               <p className="text-xs text-[#FAF8F5]/90 leading-relaxed">
-                Two 350g collector jars of vintage reserve shito. Elevated marine umami density and slow-aged depth.
+                Two big 350g jars of thick black shito. Loaded with extra smoked prawns and seasoned slow to perfection. Great value for the home and family.
               </p>
 
               <ul className="space-y-2.5 pt-4 text-xs text-[#FAF8F5]">
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> 72-Hour Continuous Simmer Batch
+                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Slow-cooked for rich, deep black flavor
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Double-Smoked Marine Crustacean Infusion
+                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Extra smoked fish and crispy shrimp bits
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Collector Gold Foil Gift Box Included
+                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Comes in a neat packaging box
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Priority Global Courier Delivery
+                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Express delivery to your doorstep
                 </li>
               </ul>
             </div>
 
             <div className="pt-8">
-              <MagneticButton accent href="#trial" className="w-full">
-                Start free trial
+              <MagneticButton accent href="#reserves" className="w-full">
+                Order Family Pack (GH₵ 54)
               </MagneticButton>
             </div>
           </div>
@@ -836,32 +832,35 @@ export default function ChelzzyShitoLandingPage() {
           <div className="rounded-[2.5rem] bg-[#161622] border border-white/10 p-8 flex flex-col justify-between shadow-xl">
             <div className="space-y-4">
               <span className="text-xs data-mono text-[#FAF8F5]/60 uppercase tracking-widest">
-                Tier 03 // Private Atelier
+                Option 03 // Jumbo Pack
               </span>
-              <h3 className="text-2xl font-bold text-[#FAF8F5]">The Sovereign Cask Crate</h3>
+              <h3 className="text-2xl font-bold text-[#FAF8F5]">Party & Travel Crate (6 Jars)</h3>
               <div className="flex items-baseline gap-1 text-3xl font-extrabold text-[#FAF8F5]">
-                GH₵ 135 <span className="text-xs font-normal text-[#FAF8F5]/60">/ 6-jar cedar crate</span>
+                GH₵ 135 <span className="text-xs font-normal text-[#FAF8F5]/60">/ 6-jar pack</span>
               </div>
               <p className="text-xs text-[#FAF8F5]/70 leading-relaxed">
-                Handcrafted wooden storage crate with 6 vintage jars, custom brass tasting spoons, and numbered batch wax seal.
+                Six big 350g jars packed in a sturdy box. The best choice for boarding school, students traveling abroad (&quot;abroad package&quot;), events, or stocking up your pantry.
               </p>
 
               <ul className="space-y-2.5 pt-4 text-xs text-[#FAF8F5]/80">
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> 6x 350g Numbered Vintage Jars
+                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> 6 full 350g jars of delicious shito
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Hand-Engraved Brass Tasting Cutlery
+                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Free quality serving spoons included
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Personal Concierge Batch Customization
+                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Custom heat levels available (Mild, Medium, or Hot)
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Long-lasting seal suitable for international travel
                 </li>
               </ul>
             </div>
 
             <div className="pt-8">
-              <MagneticButton href="#trial" className="w-full">
-                Initiate Consultation
+              <MagneticButton href="#reserves" className="w-full">
+                Order Jumbo Pack (GH₵ 135)
               </MagneticButton>
             </div>
           </div>
@@ -882,60 +881,63 @@ export default function ChelzzyShitoLandingPage() {
                 <span className="text-xl font-bold tracking-tight text-[#FAF8F5]">Chelzzy&apos;s Shito</span>
               </div>
               <p className="text-xs text-[#FAF8F5]/60 leading-relaxed">
-                Chelzzy&apos;s special black chilli sauce pepper shito with the finest Ghanaian taste. Handcrafted
-                with slow-smoked river prawns, aromatic Scotch bonnets, and authentic ancestral care.
+                Chelzzy&apos;s special black pepper shito made with the authentic Ghanaian taste you love. Prepared fresh with real smoked river fish, prawns, and natural local spices.
               </p>
             </div>
 
             {/* System Operational Indicator */}
             <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 data-mono text-xs text-[#FAF8F5]">
               <span className="w-2.5 h-2.5 rounded-full bg-[#C9A84C] animate-ping" />
-              <span>SMOKEHOUSE OPERATIONAL</span>
-              <span className="text-[#C9A84C]">• BATCH DISPATCH ACTIVE</span>
+              <span>KITCHEN ACTIVE</span>
+              <span className="text-[#C9A84C]">• FRESH JARS DELIVERING DAILY</span>
             </div>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-8 border-t border-white/5 text-xs">
             <div className="space-y-3">
-              <span className="font-semibold text-[#FAF8F5] uppercase tracking-wider">Heritage</span>
+              <span className="font-semibold text-[#FAF8F5] uppercase tracking-wider">Quick Links</span>
               <ul className="space-y-2 text-[#FAF8F5]/60">
-                <li><Link href="#artifacts" className="hover:text-[#C9A84C]">Smoked Volta Prawns</Link></li>
-                <li><Link href="#artifacts" className="hover:text-[#C9A84C]">72-Hr Obsidian Simmer</Link></li>
-                <li><Link href="#artifacts" className="hover:text-[#C9A84C]">Scotch Bonnet Heat</Link></li>
+                <li><Link href="#artifacts" className="hover:text-[#C9A84C]">Why Choose Us</Link></li>
+                <li><Link href="#protocol" className="hover:text-[#C9A84C]">How We Cook</Link></li>
+                <li><Link href="#reserves" className="hover:text-[#C9A84C]">Jar Sizes & Prices</Link></li>
+                <li><Link href="#manifesto" className="hover:text-[#C9A84C]">Our Story</Link></li>
               </ul>
             </div>
             <div className="space-y-3">
-              <span className="font-semibold text-[#FAF8F5] uppercase tracking-wider">CMS Studio</span>
+              <span className="font-semibold text-[#FAF8F5] uppercase tracking-wider">Perfect With</span>
               <ul className="space-y-2 text-[#FAF8F5]/60">
-                <li><Link href="/studio" className="hover:text-[#C9A84C]">Sanity CMS Studio</Link></li>
-                <li><Link href="/studio" className="hover:text-[#C9A84C]">Manage Broadcasts</Link></li>
-                <li><Link href="/studio" className="hover:text-[#C9A84C]">Inventory & Taxonomy</Link></li>
+                <li className="text-[#FAF8F5]/60">Waakye & Spaghetti</li>
+                <li className="text-[#FAF8F5]/60">Fried Rice & Jollof</li>
+                <li className="text-[#FAF8F5]/60">Plain Rice & Beans</li>
+                <li className="text-[#FAF8F5]/60">Ga Kenkey & Fish</li>
               </ul>
             </div>
             <div className="space-y-3">
-              <span className="font-semibold text-[#FAF8F5] uppercase tracking-wider">Philosophy</span>
+              <span className="font-semibold text-[#FAF8F5] uppercase tracking-wider">Special Orders</span>
               <ul className="space-y-2 text-[#FAF8F5]/60">
-                <li><Link href="#protocol" className="hover:text-[#C9A84C]">Protocol Archives</Link></li>
-                <li><Link href="#manifesto" className="hover:text-[#C9A84C]">Taste Manifesto</Link></li>
-                <li><Link href="#reserves" className="hover:text-[#C9A84C]">Artisanal Reserves</Link></li>
+                <li className="text-[#FAF8F5]/60">Boarding School Packs</li>
+                <li className="text-[#FAF8F5]/60">Travel Abroad Packages</li>
+                <li className="text-[#FAF8F5]/60">Event & Party Orders</li>
+                <li className="text-[#FAF8F5]/60">Wholesale Supplies</li>
               </ul>
             </div>
             <div className="space-y-3">
-              <span className="font-semibold text-[#FAF8F5] uppercase tracking-wider">Standards</span>
+              <span className="font-semibold text-[#FAF8F5] uppercase tracking-wider">Our Standards</span>
               <ul className="space-y-2 text-[#FAF8F5]/60">
-                <li className="text-[#FAF8F5]/60">Preset B Midnight Luxe</li>
-                <li className="text-[#FAF8F5]/60">Ghana FDA Certified</li>
-                <li className="text-[#FAF8F5]/60">100% Preservative Free</li>
+                <li className="text-[#FAF8F5]/60">100% Real Smoked Seafood</li>
+                <li className="text-[#FAF8F5]/60">Zero Artificial Food Colors</li>
+                <li className="text-[#FAF8F5]/60">Clean Hygienic Glass Jars</li>
+                <li className="text-[#FAF8F5]/60">Made Fresh in Accra, Ghana</li>
               </ul>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/5 text-xs text-[#FAF8F5]/40">
-            <p>&copy; {new Date().getFullYear()} Chelzzy&apos;s Shito Atelier Ltd. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Chelzzy&apos;s Shito. All rights reserved.</p>
             <div className="flex items-center gap-6">
               <Link href="#" className="hover:text-[#FAF8F5]">Quality Guarantee</Link>
-              <Link href="#" className="hover:text-[#FAF8F5]">Terms of Dispatch</Link>
-              <Link href="#" className="hover:text-[#FAF8F5]">Global Shipping Policy</Link>
+              <Link href="#" className="hover:text-[#FAF8F5]">Fast Delivery Policy</Link>
+              <Link href="#" className="hover:text-[#FAF8F5]">Customer Support</Link>
             </div>
           </div>
         </div>
