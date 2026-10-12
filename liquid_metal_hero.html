@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AETHER // Liquid Metal & Soft UI Experience</title>
+
+  <!-- Google Fonts: Syne & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Paper.js CDN (Vector Graphics & Physics) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paper/0.12.18/paper-full.min.js"></script>
+
+  <!-- GSAP CDN (Animation Suite) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            platinum: '#f4f5f7',
+            silver: '#e8eaed',
+            mercury: '#d2d6dc',
+            obsidian: '#111317',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       BASE RESETS & LIGHT MODE SYSTEM
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      cursor: none; /* Controlled by bespoke custom cursor */
+    }
+
+    body {
+      background-color: #f5f6f9;
+      color: #1a1d20;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    /* Fixed Tactile SVG Micro-Noise Texture */
+    .tactile-noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0.038;
+      pointer-events: none;
+      z-index: 999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* ==========================================================================
+       METALLIC TYPOGRAPHY GRADIENTS
+       ========================================================================== */
+    .text-metallic {
+      background: linear-gradient(135deg, #111318 0%, #3a3f4d 45%, #1a1c22 70%, #586071 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-metallic-silver {
+      background: linear-gradient(180deg, #2b303c 0%, #717b8f 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ==========================================================================
+       NEUMORPHISM (SOFT UI) & GLASSMORPHISM
+       ========================================================================== */
+    .soft-surface {
+      background: #f5f6f9;
+      box-shadow:
+        -12px -12px 28px rgba(255, 255, 255, 0.95),
+        12px 12px 28px rgba(166, 178, 196, 0.32);
+    }
+
+    .soft-glass-card {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow:
+        -10px -10px 24px rgba(255, 255, 255, 0.9),
+        14px 18px 36px rgba(170, 182, 200, 0.28),
+        inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    }
+
+    .soft-pill-inset {
+      background: #f0f2f5;
+      box-shadow:
+        inset -3px -3px 7px rgba(255, 255, 255, 0.9),
+        inset 3px 3px 7px rgba(166, 178, 196, 0.28);
+    }
+
+    /* ==========================================================================
+       THE "ONLY PAPER" LIQUID METAL BUTTON (CRUCIAL EFFECT)
+       Animated spinning conic gradient border with chromatic aberration & specular light
+       ========================================================================== */
+    @keyframes spinConic {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    .liquid-metal-btn-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      padding: 2.5px; /* Border thickness */
+      background: transparent;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+      box-shadow:
+        -8px -8px 20px rgba(255, 255, 255, 0.95),
+        8px 12px 24px rgba(166, 178, 196, 0.35);
+    }
+
+    .liquid-metal-btn-wrap:hover {
+      transform: scale(1.035);
+      box-shadow:
+        -12px -12px 28px rgba(255, 255, 255, 1),
+        12px 18px 32px rgba(166, 178, 196, 0.45),
+        0 0 25px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Animated Spinning Conic-Gradient Ring with Chromatic Fringing */
+    .conic-spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 280%;
+      height: 600%;
+      transform: translate(-50%, -50%) rotate(0deg);
+      background: conic-gradient(
+        from 0deg,
+        rgba(255, 255, 255, 0.05) 0deg,
+        rgba(255, 50, 75, 0.75) 45deg,    /* Chromatic Aberration: Red Fringing */
+        rgba(255, 255, 255, 1) 90deg,     /* Specular Liquid Chrome Highlight */
+        rgba(0, 180, 255, 0.8) 135deg,    /* Chromatic Aberration: Cyan/Blue Fringing */
+        rgba(255, 255, 255, 0.1) 180deg,
+        rgba(255, 70, 90, 0.7) 225deg,
+        rgba(255, 255, 255, 1) 270deg,
+        rgba(0, 220, 255, 0.75) 315deg,
+        rgba(255, 255, 255, 0.05) 360deg
+      );
+      animation: spinConic 4.8s linear infinite;
+      pointer-events: none;
+      filter: blur(1.5px);
+    }
+
+    /* Inner Soft UI Pill Container */
+    .liquid-metal-btn-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 36px;
+      border-radius: 9999px;
+      background: linear-gradient(145deg, #ffffff 0%, #f0f2f5 100%);
+      box-shadow:
+        inset -2px -2px 6px rgba(255, 255, 255, 0.9),
+        inset 2px 2px 6px rgba(166, 178, 196, 0.25);
+      color: #15181c;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .liquid-metal-btn-wrap:hover .liquid-metal-btn-inner {
+      background: linear-gradient(145deg, #ffffff 15%, #e9edf2 100%);
+    }
+
+    /* Polished Chrome Inset Sheen */
+    .liquid-metal-btn-inner::before {
+      content: "";
+      position: absolute;
+      top: 1px;
+      left: 14px;
+      right: 14px;
+      height: 40%;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
+    }
+
+    /* ==========================================================================
+       CUSTOM DIFFERENCE CURSOR
+       ========================================================================== */
+    .custom-cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #000000;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+    }
+
+    .custom-cursor-follower {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.12s ease-out, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+    }
+
+    body.cursor-hover .custom-cursor-dot {
+      width: 42px;
+      height: 42px;
+      background-color: #ffffff;
+    }
+
+    body.cursor-hover .custom-cursor-follower {
+      width: 68px;
+      height: 68px;
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Text Mask Hide Container for GSAP Reveal */
+    .text-mask {
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: bottom;
+    }
+  </style>
+</head>
+<body class="selection:bg-obsidian selection:text-white">
+
+  <!-- Tactile Micro-Noise Texture Layer -->
+  <div class="tactile-noise"></div>
+
+  <!-- Custom Blend-Mode Cursor -->
+  <div id="cursor-dot" class="custom-cursor-dot"></div>
+  <div id="cursor-follower" class="custom-cursor-follower"></div>
+
+  <!-- ========================================================================
+       BACKGROUND CANVAS (PAPER.JS INTERACTIVE LIQUID SILVER BLOB)
+       ======================================================================== -->
+  <canvas id="liquid-canvas" resize class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+  <!-- ========================================================================
+       FLOATING GLASSMORPHIC NAVIGATION BAR
+       ======================================================================== -->
+  <header class="fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl z-50">
+    <nav class="flex items-center justify-between px-7 py-3.5 rounded-full soft-glass-card shadow-lg transition-all duration-300">
+      
+      <!-- Minimalist Logo -->
+      <a href="#" class="interactive-element flex items-center gap-3 group">
+        <div class="w-8 h-8 rounded-full soft-surface flex items-center justify-center border border-white/90 shadow-sm transition-transform duration-500 group-hover:rotate-45">
+          <svg class="w-4 h-4 text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
+          </svg>
+        </div>
+        <span class="font-syne font-bold text-base tracking-tight text-obsidian">
+          AETHER<span class="text-xs font-mono font-normal ml-1 text-zinc-400">/ 01</span>
+        </span>
+      </a>
+
+      <!-- Center Links with Subtle Tracking -->
+      <div class="hidden md:flex items-center gap-8 text-xs font-mono tracking-widest uppercase text-zinc-500">
+        <a href="#concept" class="interactive-element hover:text-obsidian transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-obsidian hover:after:w-full after:transition-all">
+          // Concept
+        </a>
+        <a href="#topology" class="interactive-element hover:text-obsidian transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-obsidian hover:after:w-full after:transition-all">
+          // Topology
+        </a>
+        <a href="#materials" class="interactive-element hover:text-obsidian transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-obsidian hover:after:w-full after:transition-all">
+          // Materials
+        </a>
+        <a href="#archive" class="interactive-element hover:text-obsidian transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-obsidian hover:after:w-full after:transition-all">
+          // Archive
+        </a>
+      </div>
+
+      <!-- Action Button -->
+      <div class="flex items-center gap-4">
+        <a href="#connect" class="interactive-element hidden sm:inline-flex px-5 py-2 rounded-full text-xs font-mono tracking-wider uppercase text-zinc-600 soft-pill-inset hover:text-obsidian transition-all">
+          Index [48]
+        </a>
+        <a href="#inquire" class="interactive-element px-5 py-2 rounded-full text-xs font-syne font-bold tracking-wide text-white bg-obsidian hover:bg-black transition-all shadow-md">
+          Inquire
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========================================================================
+       HERO MAIN CONTAINER (STARK, MINIMALIST LIGHT-MODE CANVAS)
+       ======================================================================== -->
+  <main class="relative z-10 w-full min-h-screen flex flex-col justify-center px-6 sm:px-12 lg:px-20 pt-36 pb-20">
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+      <!-- LEFT COLUMN: Typographic Statement & The Button -->
+      <div class="lg:col-span-7 flex flex-col items-start justify-center space-y-8">
+        
+        <!-- Live Status Pill -->
+        <div class="gsap-hero-elem inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full soft-surface border border-white/80 text-xs font-mono tracking-wider text-zinc-500">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>LIQUID SPECULAR REFLECTION // SYSTEM OPERATIONAL</span>
+        </div>
+
+        <!-- Massive Structural Headline with Skewed Mask Reveal -->
+        <div class="space-y-1">
+          <div class="text-mask">
+            <h1 class="gsap-title-line font-syne font-extrabold text-5xl sm:text-7xl lg:text-8xl tracking-tight text-metallic leading-[0.95]">
+              Prismatic
+            </h1>
+          </div>
+          <br>
+          <div class="text-mask">
+            <h1 class="gsap-title-line font-syne font-extrabold text-5xl sm:text-7xl lg:text-8xl tracking-tight text-metallic-silver leading-[0.95]">
+              Liquid Metal.
+            </h1>
+          </div>
+        </div>
+
+        <!-- Breathable Monospace Technical Paragraph -->
+        <p class="gsap-hero-elem text-base sm:text-lg text-zinc-500 max-w-xl font-normal leading-relaxed tracking-tight">
+          A sculptural convergence of polished brushed platinum and soft tactile Neumorphism.
+          Simulating real-time chromatic aberration, surface tension, and photon refraction directly inside the DOM.
+        </p>
+
+        <!-- THE "ONLY PAPER" BUTTON (PERFECT 1:1 RECREATION) -->
+        <div class="gsap-hero-elem pt-3 flex flex-wrap items-center gap-6">
+          <a href="#interact" class="interactive-element liquid-metal-btn-wrap group">
+            <!-- Animated spinning conic refraction layer -->
+            <div class="conic-spinner"></div>
+            
+            <!-- Soft UI inner pill with white specular highlight -->
+            <div class="liquid-metal-btn-inner">
+              <span>Only Paper</span>
+              <svg class="w-4 h-4 text-obsidian transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Secondary Soft Action Button -->
+          <a href="#explore" class="interactive-element px-7 py-4 rounded-full soft-surface border border-white/80 text-sm font-semibold text-zinc-700 hover:text-obsidian hover:shadow-md transition-all">
+            Explore Artifacts
+          </a>
+        </div>
+
+        <!-- Metric Anchors -->
+        <div class="gsap-hero-elem pt-8 grid grid-cols-3 gap-6 sm:gap-10 border-t border-zinc-200/60 w-full max-w-lg">
+          <div>
+            <span class="block text-2xl sm:text-3xl font-syne font-bold text-obsidian">0.018<span class="text-xs font-mono font-normal ml-0.5 text-zinc-400">μm</span></span>
+            <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 mt-1 block">Surface Polish</span>
+          </div>
+          <div>
+            <span class="block text-2xl sm:text-3xl font-syne font-bold text-obsidian">60<span class="text-xs font-mono font-normal ml-0.5 text-zinc-400">FPS</span></span>
+            <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 mt-1 block">Fluid Physics</span>
+          </div>
+          <div>
+            <span class="block text-2xl sm:text-3xl font-syne font-bold text-obsidian">99.9<span class="text-xs font-mono font-normal ml-0.5 text-zinc-400">%</span></span>
+            <span class="text-xs font-mono uppercase tracking-widest text-zinc-400 mt-1 block">Specular White</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Asymmetrical 3D Soft UI Parallax Cards -->
+      <div class="lg:col-span-5 relative flex items-center justify-center min-h-[460px]">
+        
+        <!-- Primary Floating Asymmetrical Glass Card -->
+        <div id="card-primary" class="interactive-element gsap-hero-card w-full max-w-md rounded-[2.5rem] soft-glass-card p-4 transition-transform duration-300 ease-out z-20">
+          <div class="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden soft-pill-inset">
+            <!-- Fluid Chrome Object Photography with Monochromatic Treatment -->
+            <img 
+              src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80" 
+              alt="Liquid Chrome Architectural Sculpture"
+              class="w-full h-full object-cover filter grayscale contrast-125 brightness-105 transform scale-105 hover:scale-100 transition-transform duration-700 ease-out"
+            />
+            
+            <!-- Floating Specular Tag inside image -->
+            <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between p-3.5 rounded-2xl bg-white/70 backdrop-blur-xl border border-white/80 text-xs font-mono text-obsidian shadow-sm">
+              <span class="flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-obsidian"></span>
+                REFRACTION INDEX: 1.48
+              </span>
+              <span class="text-zinc-500 font-semibold">TENSOR 04</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary Floating Accent Card (Background Parallax Depth) -->
+        <div id="card-secondary" class="interactive-element gsap-hero-card absolute -bottom-6 -right-4 sm:-right-8 w-56 sm:w-64 rounded-[2rem] soft-glass-card p-3 shadow-2xl transition-transform duration-300 ease-out z-30">
+          <div class="relative w-full aspect-square rounded-[1.5rem] overflow-hidden soft-pill-inset">
+            <img 
+              src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" 
+              alt="Prismatic Chrome Wave"
+              class="w-full h-full object-cover filter grayscale contrast-110 brightness-110"
+            />
+          </div>
+          <div class="p-3 text-center">
+            <span class="font-syne font-bold text-xs uppercase tracking-wider text-obsidian block">Curvature Tension</span>
+            <span class="font-mono text-[10px] text-zinc-400 block mt-0.5">λ = 520nm • POLISHED</span>
+          </div>
+        </div>
+
+        <!-- Ambient Neumorphic Floating Badge -->
+        <div id="card-badge" class="interactive-element gsap-hero-card absolute -top-8 -left-4 sm:-left-8 px-4 py-3 rounded-2xl soft-surface border border-white/90 shadow-md text-xs font-mono text-zinc-600 flex items-center gap-3 z-10">
+          <div class="w-3 h-3 rounded-full bg-gradient-to-tr from-cyan-400 to-rose-400 animate-spin"></div>
+          <span>CHROMATIC DISPERSION</span>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       INTERACTIVE SCRIPTS (PAPER.JS LIQUID BLOB + GSAP REVEALS + PARALLAX)
+       ======================================================================== -->
+  <script>
+    /* ------------------------------------------------------------------------
+       1. PAPER.JS LIQUID SILVER METALLIC BLOB WITH MOUSE PHYSICS
+       ------------------------------------------------------------------------ */
+    paper.install(window);
+    window.onload = function() {
+      const canvas = document.getElementById('liquid-canvas');
+      paper.setup(canvas);
+
+      // Organic Fluid Blob Configuration
+      const blobCenter = new Point(view.size.width * 0.72, view.size.height * 0.48);
+      const baseRadius = Math.min(view.size.width, view.size.height) * 0.28;
+      const numPoints = 12;
+
+      // Construct Smooth Closed Fluid Path
+      const path = new Path({
+        closed: true,
+        fullySelected: false
+      });
+
+      // Metallic Liquid Silver Gradient Fill
+      path.fillColor = {
+        gradient: {
+          stops: [
+            ['#ffffff', 0.0],
+            ['#f3f5f8', 0.35],
+            ['#e4e7ec', 0.65],
+            ['#d0d5dc', 1.0]
+          ],
+          radial: true
+        },
+        origin: blobCenter,
+        destination: blobCenter.add(new Point(baseRadius, baseRadius))
+      };
+
+      // Create Initial Circular Points
+      for (let i = 0; i < numPoints; i++) {
+        const delta = new Point({
+          length: baseRadius,
+          angle: (i / numPoints) * 360
+        });
+        path.add(blobCenter.add(delta));
+      }
+      path.smooth({ type: 'continuous' });
+
+      // Physical Vertex State Storage
+      const pointSprings = [];
+      for (let i = 0; i < numPoints; i++) {
+        pointSprings.push({
+          angle: (i / numPoints) * Math.PI * 2,
+          radius: baseRadius,
+          velocity: 0,
+          targetRadius: baseRadius,
+          noiseOffset: Math.random() * 100
+        });
+      }
+
+      // Cursor Tracker for Magnetic Push/Pull
+      let mousePos = view.center;
+      let mouseSpeed = 0;
+      let lastMousePos = mousePos;
+
+      view.onMouseMove = function(event) {
+        mousePos = event.point;
+        mouseSpeed = event.delta.length;
+      };
+
+      // Physics Loop: Spring Mass Damper + Harmonious Fluid Morphing
+      view.onFrame = function(event) {
+        const time = event.time;
+
+        for (let i = 0; i < numPoints; i++) {
+          const spring = pointSprings[i];
+          const segment = path.segments[i];
+
+          // Harmonic idle undulating wave motion
+          const wave = Math.sin(time * 1.8 + spring.noiseOffset) * 18 +
+                       Math.cos(time * 2.4 + spring.angle * 3) * 12;
+
+          let targetR = baseRadius + wave;
+
+          // Magnetic Cursor Physics Interaction
+          const currentPoint = segment.point;
+          const distToMouse = mousePos.getDistance(currentPoint);
+          const pushRadius = 240;
+
+          if (distToMouse < pushRadius) {
+            const force = (1 - (distToMouse / pushRadius)) * 65;
+            targetR += force;
+          }
+
+          // Spring Dynamics
+          const tension = 0.045;
+          const damping = 0.88;
+          const displacement = targetR - spring.radius;
+          spring.velocity += displacement * tension;
+          spring.velocity *= damping;
+          spring.radius += spring.velocity;
+
+          // Recompute Segment Vector
+          const angle = spring.angle;
+          const newX = blobCenter.x + Math.cos(angle) * spring.radius;
+          const newY = blobCenter.y + Math.sin(angle) * spring.radius;
+
+          segment.point = new Point(newX, newY);
+        }
+
+        path.smooth({ type: 'continuous' });
+      };
+
+      // Responsive Resize Handling
+      view.onResize = function() {
+        blobCenter.x = view.size.width * 0.72;
+        blobCenter.y = view.size.height * 0.48;
+      };
+    };
+
+    /* ------------------------------------------------------------------------
+       2. GSAP CINEMATIC ENTRANCE TIMELINE WITH SKEW TEXT MASKS
+       ------------------------------------------------------------------------ */
+    window.addEventListener('DOMContentLoaded', () => {
+      const tl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.4 } });
+
+      // Title Skew Reveal
+      tl.from('.gsap-title-line', {
+        y: '120%',
+        skewY: 6,
+        opacity: 0,
+        stagger: 0.12,
+        duration: 1.5
+      }, 0.2);
+
+      // Hero Elements Staggered Fade Up
+      tl.from('.gsap-hero-elem', {
+        y: 35,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 1.2
+      }, 0.6);
+
+      // Glass Cards Fluid Pop
+      tl.from('.gsap-hero-card', {
+        scale: 0.88,
+        y: 50,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 1.6,
+        ease: 'elastic.out(1, 0.75)'
+      }, 0.7);
+    });
+
+    /* ------------------------------------------------------------------------
+       3. 3D MOUSE PARALLAX ON ASYMMETRICAL GLASS CARDS
+       ------------------------------------------------------------------------ */
+    const cardPrimary = document.getElementById('card-primary');
+    const cardSecondary = document.getElementById('card-secondary');
+    const cardBadge = document.getElementById('card-badge');
+
+    let mouseX = 0, mouseY = 0;
+    let targetX = 0, targetY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+      mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    function renderParallax() {
+      // Smooth linear interpolation (Lerp)
+      targetX += (mouseX - targetX) * 0.08;
+      targetY += (mouseY - targetY) * 0.08;
+
+      if (cardPrimary) {
+        cardPrimary.style.transform = `translate3d(${targetX * 22}px, ${targetY * 22}px, 0) rotateY(${targetX * 8}deg) rotateX(${-targetY * 8}deg)`;
+      }
+      if (cardSecondary) {
+        cardSecondary.style.transform = `translate3d(${targetX * -34}px, ${targetY * -34}px, 0) rotateY(${targetX * -12}deg)`;
+      }
+      if (cardBadge) {
+        cardBadge.style.transform = `translate3d(${targetX * 45}px, ${targetY * 45}px, 0)`;
+      }
+
+      requestAnimationFrame(renderParallax);
+    }
+    renderParallax();
+
+    /* ------------------------------------------------------------------------
+       4. CUSTOM DIFFERENCE DOT CURSOR WITH INTERACTIVE EXPANSION
+       ------------------------------------------------------------------------ */
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorFollower = document.getElementById('cursor-follower');
+    let posX = 0, posY = 0;
+    let followerX = 0, followerY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      posX = e.clientX;
+      posY = e.clientY;
+
+      cursorDot.style.left = `${posX}px`;
+      cursorDot.style.top = `${posY}px`;
+    });
+
+    function updateFollower() {
+      followerX += (posX - followerX) * 0.18;
+      followerY += (posY - followerY) * 0.18;
+
+      cursorFollower.style.left = `${followerX}px`;
+      cursorFollower.style.top = `${followerY}px`;
+
+      requestAnimationFrame(updateFollower);
+    }
+    updateFollower();
+
+    // Hover Scaling for Interactive UI
+    document.querySelectorAll('.interactive-element, a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+  </script>
+</body>
+</html>
