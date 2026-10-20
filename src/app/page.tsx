@@ -574,7 +574,7 @@ export default function ChelzzyShitoLandingPage() {
       {/* --------------------------------------------------------- */}
       <section
         ref={heroRef}
-        className="relative h-[100dvh] w-full flex flex-col justify-end pb-16 sm:pb-24 px-6 sm:px-16 overflow-hidden"
+        className="relative min-h-[100dvh] w-full flex flex-col justify-end pt-36 sm:pt-44 md:pt-48 pb-16 sm:pb-24 px-6 sm:px-16 overflow-hidden"
       >
         {/* Full-bleed Authentic Shito Spices Image */}
         <div
@@ -588,14 +588,10 @@ export default function ChelzzyShitoLandingPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D12] via-[#0D0D12]/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0D0D12]/90 via-[#0D0D12]/35 to-transparent" />
 
-        {/* Content pushed to Bottom-Left Third */}
-        <div className="relative z-10 max-w-4xl space-y-6">
-          <div className="hero-anim-item inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#C9A84C]/15 border border-[#C9A84C]/30 text-xs text-[#C9A84C] data-mono uppercase tracking-widest backdrop-blur-md">
-            <img
-              src="/images/chelzzy_logo.png"
-              alt="Chelzzy's Shito Official Seal"
-              className="w-5 h-5 rounded-full object-cover border border-[#C9A84C]/60"
-            />
+        {/* Content pushed to Bottom-Left Third with guaranteed clearance below Navbar */}
+        <div className="relative z-10 max-w-4xl space-y-6 mt-auto">
+          <div className="hero-anim-item inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#C9A84C]/15 border border-[#C9A84C]/30 text-xs text-[#C9A84C] data-mono uppercase tracking-widest backdrop-blur-md shadow-lg">
+            <Flame className="w-4 h-4 text-[#C9A84C] animate-pulse flex-shrink-0" />
             <span>Finest Ghanaian Taste // Special Black Pepper Shito</span>
           </div>
 
