@@ -536,14 +536,18 @@ export default function ChelzzyShitoLandingPage() {
         aria-label="Primary Navigation"
         className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-4xl rounded-full px-5 py-3 border border-[#FAF8F5]/15 bg-[#FAF8F5]/10 backdrop-blur-xl transition-all duration-300 flex items-center justify-between"
       >
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-[#C9A84C] flex items-center justify-center text-[#0D0D12]">
-            <Flame className="w-4 h-4 fill-current text-[#0D0D12]" />
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-[#C9A84C] shadow-[0_0_15px_rgba(201,168,76,0.35)] group-hover:scale-105 transition-transform duration-300 bg-[#0D0D12] flex-shrink-0">
+            <img
+              src="/images/chelzzy_logo.png"
+              alt="Chelzzy's Shito Logo"
+              className="w-full h-full object-cover"
+            />
           </div>
           <span className="font-semibold text-sm sm:text-base tracking-tight text-white flex items-center gap-1.5">
             CHELZZY&apos;S <span className="text-[10px] text-[#C9A84C] data-mono tracking-widest font-bold">SHITO</span>
           </span>
-        </div>
+        </Link>
 
         <div className="hidden md:flex items-center gap-7 text-xs font-medium text-[#FAF8F5]/80">
           <Link href="#artifacts" className="interactive-lift hover:text-[#C9A84C]">
@@ -586,8 +590,13 @@ export default function ChelzzyShitoLandingPage() {
 
         {/* Content pushed to Bottom-Left Third */}
         <div className="relative z-10 max-w-4xl space-y-6">
-          <div className="hero-anim-item inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C9A84C]/15 border border-[#C9A84C]/30 text-xs text-[#C9A84C] data-mono uppercase tracking-widest">
-            <Flame className="w-3.5 h-3.5 animate-pulse text-[#C9A84C]" /> Finest Ghanaian Taste // Special Black Pepper Shito
+          <div className="hero-anim-item inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#C9A84C]/15 border border-[#C9A84C]/30 text-xs text-[#C9A84C] data-mono uppercase tracking-widest backdrop-blur-md">
+            <img
+              src="/images/chelzzy_logo.png"
+              alt="Chelzzy's Shito Official Seal"
+              className="w-5 h-5 rounded-full object-cover border border-[#C9A84C]/60"
+            />
+            <span>Finest Ghanaian Taste // Special Black Pepper Shito</span>
           </div>
 
           <div className="hero-anim-item space-y-1">
@@ -874,11 +883,18 @@ export default function ChelzzyShitoLandingPage() {
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
             <div className="space-y-2 max-w-sm">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#C9A84C] flex items-center justify-center text-[#0D0D12]">
-                  <Flame className="w-4 h-4 fill-current text-[#0D0D12]" />
+              <div className="flex items-center gap-3.5">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#C9A84C] shadow-[0_0_20px_rgba(201,168,76,0.35)] bg-[#0D0D12] flex-shrink-0">
+                  <img
+                    src="/images/chelzzy_logo.png"
+                    alt="Chelzzy's Shito Logo"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <span className="text-xl font-bold tracking-tight text-[#FAF8F5]">Chelzzy&apos;s Shito</span>
+                <div>
+                  <span className="text-xl font-bold tracking-tight text-[#FAF8F5] block">Chelzzy&apos;s Shito</span>
+                  <span className="text-[11px] text-[#C9A84C] data-mono tracking-wider uppercase font-semibold">Delicious &amp; Healthy!!</span>
+                </div>
               </div>
               <p className="text-xs text-[#FAF8F5]/60 leading-relaxed">
                 Chelzzy&apos;s special black pepper shito made with the authentic Ghanaian taste you love. Prepared fresh with real smoked river fish, prawns, and natural local spices.
